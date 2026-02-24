@@ -4,7 +4,6 @@ Repositório destinado à matéria de DevOps.
 <hr/>
 
 ## DevOps e SRE
-Aqui está uma explicação **mais curta e direta** sobre DevOps e SRE, mantendo a ideia principal de cada um.
 
 ## O que é DevOps?
 
