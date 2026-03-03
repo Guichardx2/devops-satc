@@ -30,3 +30,58 @@ Se o DevOps fala mais sobre a cultura e colaboração, o SRE mostra **como coloc
     * **SLA:** O acordo caso a meta não seja cumprida.
 * **Error Budget:** A margem aceitável de falhas antes de priorizar estabilidade.
 * **Redução de Toil:** Diminuir trabalho manual e repetitivo por meio de automação.
+
+---
+
+## Sobre o Projeto
+
+Este repositório contém um projeto **frontend** desenvolvido com as seguintes tecnologias:
+
+- **React** - Biblioteca para construção de interfaces
+- **TypeScript** - Superset JavaScript com tipagem estática
+- **Vite** - Build tool rápido para desenvolvimento
+- **Tailwind CSS** - Framework CSS utilitário
+- **HeroUI** - Biblioteca de componentes UI
+
+O projeto é uma aplicação web simples que serve como base/template para estudos de DevOps.
+
+---
+
+## Como Rodar
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- npm ou yarn
+
+### Passos
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/Guichardx2/devops-satc.git
+```
+
+2. Acesse a pasta do frontend:
+```bash
+cd devops-satc/devops-front
+```
+
+3. Instale as dependências:
+```bash
+npm install
+```
+
+4. Rode o projeto em modo de desenvolvimento:
+```bash
+npm run dev
+```
+
+5. Acesse no navegador: `http://localhost:5173`
+
+### Outros Comandos
+
+| Comando | Descrição |
+|---------|-----------|
+| `npm run build` | Gera a build de produção |
+| `npm run preview` | Visualiza a build de produção |
+| `npm run lint` | Executa o linter para verificar o código |
