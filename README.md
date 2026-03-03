@@ -52,7 +52,7 @@ O projeto é uma aplicação web simples que serve como base/template para estud
 ### Pré-requisitos
 
 - [Node.js](https://nodejs.org/) (versão 18 ou superior)
-- npm ou yarn
+- npm
 
 ### Passos
 
