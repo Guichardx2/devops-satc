@@ -13,6 +13,21 @@ RUN npm run build
 CMD ["npm", "run", "preview"]
 
 
+# FROM node:20-alpine
+
+# WORKDIR /app
+
+# COPY ..
+
+# RUN npm install
+
+# run npm run build
+
+# EXPOSE 4173
+
+# CMD ["npm", "run", "preview"]
+
+
 FROM node:20-alpine AS production
 
 WORKDIR /app
