@@ -10,6 +10,8 @@ COPY . .
 
 RUN npm run build
 
+CMD ["npm", "run", "preview"]
+
 
 FROM node:20-alpine AS production
 
