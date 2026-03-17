@@ -21,4 +21,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-satc:001
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-satc:0.0.1 .
