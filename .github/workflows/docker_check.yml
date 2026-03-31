@@ -39,7 +39,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'image'
-          image-ref: 'docker.io/usuario/satc-devops:0.0.2'
+          image-ref: 'docker.io/usuario/devops-satc:0.0.2'
           format: json
           output: trivy-results.json
           severity: MEDIUM,HIGH,CRITICAL
@@ -65,19 +65,19 @@ jobs:
             exit 1
           fi
 
-      - name: Falhar se houver mais de 2 vulnerabilidades mÃ©dias
+      - name: Falhar se houver mais de 2 vulnerabilidades médias
         run: |
           COUNT=$(curl -s -u "${SONAR_TOKEN}:" \
             "https://sonarcloud.io/api/issues/search?componentKeys=${SONAR_PROJECT_KEY}&types=VULNERABILITY&severities=MAJOR&resolved=false&ps=1" \
             | jq '.total')
 
-          echo "Quantidade de vulnerabilidades mÃ©dias: $COUNT"
+          echo "Quantidade de vulnerabilidades médias: $COUNT"
 
           if [ "$COUNT" -gt 2 ]; then
-            echo "Pipeline bloqueada: mais de 2 vulnerabilidades mÃ©dias encontradas."
+            echo "Pipeline bloqueada: mais de 2 vulnerabilidades médias encontradas."
             exit 1
           fi
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: https://sonarcloud.io
-          SONAR_PROJECT_KEY: usuario
+          SONAR_PROJECT_KEY: Guichardx2_devops-satc
