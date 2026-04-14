@@ -8,7 +8,9 @@ RUN npm ci --prefer-offline --no-audit
 
 COPY . .
 
-RUN npm run build
+RUN apk update && apk upgrade && npm run build
+
+RUN apk add --no-cache libstdc++
 
 CMD ["npm", "run", "preview"]
 
@@ -32,11 +34,12 @@ FROM node:20-alpine AS production
 
 WORKDIR /app
 
-RUN npm install -g serve
+RUN npm install -g serve@latest
 
 COPY --from=build /app/dist ./dist
 
-RUN addgroup -g 1001 -S appgroup && \
+RUN apk update && apk upgrade && \
+    addgroup -g 1001 -S appgroup && \
     adduser -S appuser -u 1001 -G appgroup && \
     chown -R appuser:appgroup /app
 
