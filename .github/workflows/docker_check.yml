@@ -56,8 +56,8 @@ jobs:
       - name: Analyze Trivy results
         run: |
           if [ -f trivy-results.json ]; then
-            MEDIUM_COUNT=$(jq '[.Results[].Vulnerabilities[]? | select(.Severity == "MEDIUM")] | length' trivy-results.json)
-            HIGH_COUNT=$(jq '[.Results[].Vulnerabilities[]? | select(.Severity == "HIGH")] | length' trivy-results.json)
+            MEDIUM_COUNT=$(jq 'if .Results then [.Results[].Vulnerabilities[]? | select(.Severity == "MEDIUM")] | length else 0 end' trivy-results.json)
+            HIGH_COUNT=$(jq 'if .Results then [.Results[].Vulnerabilities[]? | select(.Severity == "HIGH")] | length else 0 end' trivy-results.json)
 
             echo "Vulnerabilidades médias: $MEDIUM_COUNT"
             echo "Vulnerabilidades altas: $HIGH_COUNT"
