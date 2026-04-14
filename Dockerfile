@@ -34,19 +34,20 @@ CMD ["npm", "run", "preview"]
 
 FROM alpine:3.23.3 AS production
 
+RUN apk update && apk upgrade && \
+    apk add --no-cache nodejs npm && \
+    addgroup -g 1001 -S appgroup && \
+    adduser -S appuser -u 1001 -G appgroup
+
 WORKDIR /app
 
 RUN npm install -g serve@latest
 
 COPY --from=build /app/dist ./dist
 
-RUN apk update && apk upgrade && \
-    addgroup -g 1001 -S appgroup && \
-    adduser -S appuser -u 1001 -G appgroup && \
-    chown -R appuser:appgroup /app
+RUN chown -R appuser:appgroup /app
 
 USER appuser
-
 
 EXPOSE 3000
 
