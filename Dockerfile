@@ -8,7 +8,9 @@ RUN npm ci --prefer-offline --no-audit
 
 COPY . .
 
-RUN apk update && apk upgrade && npm run build
+RUN apk update && apk upgrade --no-cache
+
+RUN npm run build
 
 RUN apk add --no-cache libstdc++
 
@@ -30,7 +32,7 @@ CMD ["npm", "run", "preview"]
 # CMD ["npm", "run", "preview"]
 
 
-FROM node:20-alpine AS production
+FROM alpine:3.23.3 AS production
 
 WORKDIR /app
 
